@@ -1,0 +1,92 @@
+<section id="pricing" class="page space">
+    <div class="container text-center">
+        <div class="header">
+            <h2 class="title wow fadeInDown">Pricing</h2>
+            <p class="wow fadeInDown">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget risus vitae massa <br> semper aliquam quis mattis quam.</p>
+        </div>
+
+        <div class="row">
+        {% for item in data.pricing.all %}
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="wow zoomIn" data-wow-duration="400ms" data-wow-delay="{{item.id}}00ms">
+                        {% if forloop.first %}    
+                            <ul class="pricing featured">
+                        {% else %}
+                            <ul class="pricing">
+                        {% endif %}
+                        <div class="panel panel-default text-center">
+                            <div class="panel-heading"><h3>Basic</h3></div>
+                        </div>
+                            <li class="plan-header">
+                                <div class="price-duration">
+                                    <span class="price">R {{item.price}}<span class="price-cents">99</span><span class="price-month">mo.</span></span>
+                                    <span class="duration">{{item.payment}}</span>
+                                </div>
+                                <div class="plan-name">{{item.name}}</div>
+                            </li>
+                            <li><strong>1</strong> {{item.item_name}}</li>
+                            <li><strong>{{item.item_amount}}</strong> {{item.item_quantity}}</li>
+                            <li><strong>Saving</strong>{{ite.saving}}</li>
+                            <li><strong>24/7</strong> SUPPORT</li>
+                            <li class="plan-purchase"><a class="btn btn-primary" href="#">Get It Now!</a></li>
+                        </ul>
+                    </div>
+                </div>
+            {% endfor %}
+
+        </div>
+    </div>
+    
+</section><!--/#pricing-->
+
+    <section id="pricing" class="page space">
+        <div class="container text-center"> 
+        <div class="header">
+            <h2 class="title wow fadeInDown">Our Efforts</h2>
+            <p class="wow fadeInDown">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor.</p>
+        </div> 
+            <div class="row"> 
+        <div class="col-sm-3">
+            <div class="wow zoomIn" data-wow-duration="400ms" data-wow-delay="200ms">
+                <div class="pricing pricing-danger text-center">
+                <div class="pricing featured">
+                <div class="panel panel-default text-center">
+                    <div class="panel-heading"><h3>Basic</h3></div>
+                <div class="plan-name">
+                    <h3 class="price">$9<span class="price-cents">99</span><span class="price-month">mo.</span></h3>
+                </div>
+                <ul class="list-group">
+                    <li class="list-group-item">5 Projects</li>
+                    <li class="list-group-item">5 GB of Storage</li>
+                    <li class="list-group-item">Up to 100 Users</li>
+                    <li class="list-group-item">10 GB Bandwidth</li>
+                    <li class="list-group-item">Security Suite</li>
+                    <li class="list-group-item"><a class="btn btn-default">Sign Up Now!</a></li>
+                
+                </ul>
+            </div>
+            </div> 
+        </div>
+        </div>           
+        </div>
+        <div class="col-sm-3">
+            <div class="panel panel-danger text-center">
+            <div class="panel-heading"><h3>Premium</h3></div>
+            <div class="panel-body">
+                <h3 class="panel-title price">$29<span class="price-cents">99</span><span class="price-month">mo.</span></h3>
+            </div>
+            <ul class="list-group">
+                <li class="list-group-item">Unlimited</li>
+                <li class="list-group-item">50 GB of Storage</li>
+                <li class="list-group-item">Up to 1000 Users</li>
+                <li class="list-group-item">100 GB Bandwidth</li>
+                <li class="list-group-item">Security Suite</li>
+                <li class="list-group-item"><a class="btn btn-primary">Sign Up Now!</a></li>
+            </ul>
+            </div>          
+        </div>
+        </div>
+        </div>      
+</section>
+
+   

@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="container">
+<div class="col"></div>
+	<form action="/" method="post" id="post-form" onchange="previewImage(event)">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <input type="submit" value="Submit">
+	</form>
+</div>
+</div>
+<div><img src="image.png" id="div_background_img" onchange="previewImage(event)"></div>
+<style type="text/css">
+div {
+  column-count: 2;
+  column-gap: 100px;
+  column-width: 100px;
+  margin-bottom: 10px;
+}
+
+#id_username.select {
+	color: black;
+	background-color: lightblue;
+	width: 100%;
+}
+#div_id_username {
+	color: blue;
+	font-size: 18px;
+}
+#div_id_email {
+	color: red;
+}
+#div_id_color {
+	color: green;
+}
+#div_id_block_color {
+	color: orange;
+}
+#div_background_img {
+	color: blue;
+}
+</style>
+
+<script type="text/javascript">
+function previewImage(event){
+  var reader = new FileReader();
+  var imageField = document.getElementById('div_background_img')
+
+  reader.onload = function(){
+    if(reader.readyState == 2){
+      imageField.src = result.result;
+    }
+  }
+  reader.readAsDataURL(event.target.files[0]);
+}
+</script>
+{% endblock%}

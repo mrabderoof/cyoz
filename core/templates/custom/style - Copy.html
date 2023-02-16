@@ -1,0 +1,115 @@
+<html>
+<head><style>
+#monkey {color:blue}
+#ape {color:purple}
+</style></head>
+<body>
+<style type="text/css"></div>
+#ape {
+  font-size: 50px;
+}  
+</style>
+
+Color: <input class="jscolor" value="ab2567">
+
+<h1 id="monkey"> fruit </h1>
+
+<button onclick="changeid()">Change</button>
+<button onclick="changeback()">Change Back</button>
+
+<input type="text" id="text-box" size="20" value="Hello world!">
+
+<button onclick="selectText()">Select text</button>
+
+<input onClick="this.setSelectionRange(0, this.value.length)" value="Sample Text" />
+
+<p id="test">"This Is A Test Sentence With Titlecase </br>this is a test sentence with small letters. </br>This Is A Test Sentence With Titlecase </br>this is a test sentence with small letters."</p>
+
+<div class="divclass" id="repdemo"></div>
+<p><button class="btncls" onclick="replacetxt()">Execute replace method</button></p>
+<p><button class="btncls" onclick="replaceall()">Execute replace all</button></p>
+
+
+<div id="myarea">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quam orci, ornare <span style="font-weight:bold;">sed ullamcorper id, eleifend in quam. Nulla facilisi. Aliquam vitae orci arcu. Aenean a nulla volutpat ante</span> ultrices euismod ut et magna. Nulla vitae vulputate urna. Donec tempus, nisi a pharetra placerat, diam nisi aliquam elit, a consectetur magna enim sed ligula. Aliquam iaculis rutrum dui et tristique. Nulla facilisi. Cras eu ante fringilla erat convallis rutrum in ac magna. Praesent porta bibendum augue sit amet rhoncus. Vestibulum nibh quam, posuere non consectetur eget, pharetra sit amet lectus.</div>
+
+<button onclick="getSelectionHtml();">Get HTML</button>
+<button onclick="getSelectionLink();">Get Link</button>
+
+<div id="selectedcolor" class="w3-large" style="background-color: rgb(102, 204, 255);">
+    <br><br>
+    <span class="w3-text-black">Black Text</span><br><br>
+    <span class="w3-text-black" style="text-shadow:1px 1px 0 #444">Shadow</span><br><br>
+    <span class="w3-text-white">White Text</span><br><br>
+    <span class="w3-text-white" style="text-shadow:1px 1px 0 #444">Shadow</span>
+</div>
+
+<script type="text/javascript">
+function getSelectionHtml() {
+    var sel, range, node;
+    if (window.getSelection) {
+        sel = window.getSelection();
+        if (sel.getRangeAt && sel.rangeCount) {
+            range = window.getSelection().getRangeAt(0);
+            
+            var html = '<span style="font-weight:bold;">' + range + '</span>'
+            range.deleteContents();
+            
+            var el = document.createElement("div");
+            el.innerHTML = html;
+            var frag = document.createDocumentFragment(), node, lastNode;
+            while ( (node = el.firstChild) ) {
+                lastNode = frag.appendChild(node);
+            }
+            range.insertNode(frag);
+        }
+    } else if (document.selection && document.selection.createRange) {
+        range = document.selection.createRange();
+        range.collapse(false);
+        range.pasteHTML(html);
+    }
+
+}
+</script>
+
+
+<script type="text/javascript">
+var src_str = document.getElementById("test").innerHTML;
+
+function replacetxt(){
+var str_rep = src_str.replace("test","<h1>TEST</h1>");
+
+document.getElementById("test").innerHTML = str_rep;
+
+}
+
+function replaceall(){
+var str_rep = src_str.replace(src_str,"<h1>TEST</h1>");
+
+document.getElementById("test").innerHTML = str_rep;
+
+}
+
+</script>
+<script type="text/javascript">
+function selectText() {
+  const input = document.getElementById('text-box');
+  input.focus();
+  input.select();
+}
+</script>
+<script>
+function changeid ()
+{
+var e = document.getElementById("monkey");
+e.id = "ape";
+}
+</script>
+<script type="text/javascript">
+function changeback() {
+  var e = document.getElementById("ape");
+  e.id = "monkey";
+}
+</script>
+<script src="jscolor.js"></script>
+</body>
+</html>

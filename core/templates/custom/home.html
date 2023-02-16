@@ -1,0 +1,158 @@
+{% extends "custom/base.html" %}
+{% load static  %}
+
+{% block content %}
+
+{% if Profile.video_background == 'Yes' %}
+<video autoplay muted loop id="myVideo">
+  <source src="https://storage.googleapis.com/coverr-main/mp4/Mt_Baker.mp4" type="video/mp4">
+  Your browser does not support HTML5 video.
+</video>
+
+<div class="content">
+  <h1>Heading</h1>
+  <p>Lorem ipsum dolor sit amet, an his etiam torquatos. Tollit soleat phaedrum te duo, eum cu recteque expetendis neglegentur. Cu mentitum maiestatis persequeris pro, pri ponderum tractatos ei. Id qui nemore latine molestiae, ad mutat oblique delicatissimi pro.</p>
+  <button id="myBtn" onclick="myFunction()">Pause</button>
+</div>
+{% endif %}
+
+{% if nav_bar %}
+{% for Navigation in Navigations %}
+{% if Navigation.navbar_place == 'Left' or Navigation.navbar_place == 'Right' %}
+<div id="sidenav" class="sidenav">
+{% for nav in nav_bar %}
+  <a href="#{{nav.name}}">{{nav.name}}</a>
+{% endfor %}
+</div>
+{% endif %}
+
+{% if Navigation.navbar_place == 'Top' %}
+<div class="topnav" id="myTopnav">
+  <a href="#home" class="active">Home</a>
+  {% for nav in nav_bar %}
+    <a href="{% url 'nav-detail' nav.name %}">{{nav.name}}</a>
+  {% endfor %}
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()"><img src="{% static 'images/icons8-puzzle-64.png' %}">
+    <i class="fa fa-bars"></i>
+  </a>
+</div>
+
+{% endif %}
+{% endfor %}
+{% endif %}
+
+<div class="container">
+	<h1><img src="https://img.icons8.com/nolan/64/000000/puzzle.png">Hello World! </h1>
+	<h2>Hello World!{{Navigation.navbar_place}}  </h2>
+  {% for Navigation in Navigations %}
+	<h3>Hello World!</h3>
+  {% endfor %}
+<div id="myarea" contenteditable="true">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quam orci, ornare <span style="font-weight:bold;">sed ullamcorper id, eleifend in quam. Nulla facilisi. Aliquam vitae orci arcu. Aenean a nulla volutpat ante</span> ultrices euismod ut et magna. Nulla vitae vulputate urna. Donec tempus, nisi a pharetra placerat, diam nisi aliquam elit, a consectetur magna enim sed ligula. Aliquam iaculis rutrum dui et tristique. Nulla facilisi. Cras eu ante fringilla erat convallis rutrum in ac magna. Praesent porta bibendum augue sit amet rhoncus. Vestibulum nibh quam, posuere non consectetur eget, pharetra sit amet lectus.</div>
+
+<button onclick="getSelectionHtml();">Get HTML</button>
+<button onclick="getSelectionLink();">Get Link</button>
+
+{% for cssgrid in cssgrids %}
+<p>
+@media (min-width: {{cssgrid.min_width}}px) {
+  .wrapper {
+    grid-template-columns: {{cssgrid.grid_temp_col1}}fr {{cssgrid.grid_temp_col2}}fr {{cssgrid.grid_temp_col3}}fr;
+    grid-template-areas: 
+      "{{cssgrid.a_1}} {{cssgrid.a_2}} {{cssgrid.a_3}} {{cssgrid.a_4}} {{cssgrid.a_5}}"
+      "{{cssgrid.b_1}} {{cssgrid.b_2}} {{cssgrid.b_3}} {{cssgrid.b_4}} {{cssgrid.b_5}}"
+      "{{cssgrid.c_1}} {{cssgrid.c_2}} {{cssgrid.c_3}} {{cssgrid.c_4}} {{cssgrid.c_5}}"
+      "{{cssgrid.d_1}} {{cssgrid.d_2}} {{cssgrid.d_3 }} {{cssgrid.d_4}} {{cssgrid.d_5}}"
+      "{{cssgrid.e_1}} {{cssgrid.e_2}} {{cssgrid.e_3}} {{cssgrid.e_4}} {{cssgrid.e_5}}"      
+      "{{cssgrid.f_1}} {{cssgrid.f_2}} {{cssgrid.f_3}} {{cssgrid.f_4}} {{cssgrid.f_5}}";
+  }
+nav ul {
+    display: {{cssgrid.nav_ul_display}};
+    justify-content: {{cssgrid.nav_ul_justify_content}};
+  }
+}
+<p>
+{% endfor %}
+  <div class="row">
+    <div class="col">
+      <h7>One of two columns</h7>
+      <p>From the two, https://pypi.python.org/pypi/django-select-multiple-field/ looks more well rounded and complete. It even has a nice set of unittests.<br/>
+      	{{Profile.block_color}}
+
+</p>
+<img style="width: 70px;" src="{% static 'images/20160820_171831.jpg' %}">
+</div>
+    <div class="col">
+     <h7>One of two columns</h7>
+        <img src="{% static 'images/icons8-puzzle-64.png' %}">
+       	   <iframe width="420" height="315"
+            src="https://www.youtube.com/embed/2FJqTn07yA8?autoplay=1">
+           </iframe> 
+      <p id="colorSelect">From the two, https://pypi.python.org/pypi/django-select-multiple-field/ looks more well rounded and complete. It even has a nice set of unittests.
+      	{{Profile.block_color}}
+</p>
+    </div>
+  	<div class="{{Profile.col_1}} {{Profile.col_2}} {{Profile.col_3}}">
+      <h7>One of two columns</h7>
+      <img style="width: 70px;" src="{% static 'Files/IMG-20170408-WA0006.jpg' %}">
+
+      <p id="colorSelect">From the two, https://pypi.python.org/pypi/django-select-multiple-field/ looks more well rounded and complete. It even has a nice set of unittests.
+      	{{Profile.block_color}}
+
+</p>
+    </div>
+</div>
+<div>
+<select id="colorSelect"> 
+<option>Red</option> 
+<option>Green</option> 
+<option>White</option> 
+<option>Black</option> 
+</select> 
+<form>
+<input type="button" onclick="removecolor()" value="Select and Remove"> 
+</form>
+	<div>
+	<a href="#s">Link</a>
+		<div class="bbb">
+			<form>
+				<button>Button</button>
+			</form>
+		</div>
+  	</div>
+    <button href="#home" class="hvr-hollow hvr-shrink">WOrld</button>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+</div>
+</div>
+
+<div class="footer">
+  <a href="#">{{footers.count}}</a>
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()"><img src="{% static 'images/icons8-puzzle-64.png' %}">
+    <i class="fa fa-bars"></i></a>
+  <a href="#home" class="active">{{footer.name}}</a>
+  {% for footer in footers %}
+    <a href="{% url 'footer-detail' footer.name %}">{{footer.name}}</a>
+  {% endfor %}
+</div>
+
+{% endblock content %}

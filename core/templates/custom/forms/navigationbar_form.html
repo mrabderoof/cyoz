@@ -1,0 +1,150 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<style type="text/css">
+h{{header.number}}{
+  font-size: {{header.size}}rem;
+  font-family: {{header.font}};
+  color: {{header.color}};
+  text-align: {{header.align}};
+
+  {% if header.animation_name %}
+  animation-name: {{header.animation_name}}; 
+  animation-duration: {{header.animation_duration}}s; 
+  animation-delay: {{header.animation_delay}}s;
+  animation-iteration-count: {{header.animation_iteration_count}};
+  animation-direction: {{header.animation_direction}};
+  {% endif %}
+}
+</style>
+
+<h{{header.number}}>{{header.name}}</h{{header.number}}>
+
+<div class="container">
+<div class="col"></div>
+	<form action="#" method="post" id="post-form">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <input type="submit" value="Submit">
+	</form>
+</div>
+</div>
+
+<button onclick="changeid()">Change</button>
+
+{% for header in headers %}
+  <p>{{header.color}}</p>
+{% endfor %}
+<h2>Example 1</h2>
+  Color: <input class="jscolor" value="ab2567">
+
+  <h2>Example 2</h2>
+
+  <button class="jscolor {valueElement:'chosen-value', onFineChange:'setTextColor(this)'}">
+    Pick text color
+  </button>
+
+  HEX value: <input id="chosen-value" value="000000">
+
+<script type="text/javascript">
+function changeid () {
+  var e = document.getElementById("id_color.textinput");
+  e.id = "jscolor";
+}
+</script>
+<script type="text/javascript">
+function changeid () {
+  var e = document.getElementById("id_color");
+  e.id = "jscolor";
+}
+</script>
+<script>
+  function setTextColor(picker) {
+    document.getElementsByTagName('body')[0].style.color = '#' + picker.toString()
+  }
+</script>
+<style type="text/css">
+div {
+  column-count: 2;
+  column-gap: 100px;
+  column-width: 100px;
+  margin-bottom: 10px;
+}
+#id_color.textinput {
+  color: black;
+}
+
+#jscolor.textinput {
+  color: black;
+  background-color: {{header.color}};
+}
+
+
+#ape {
+  font-size: 50px;
+}  
+
+#div_id_color {
+  color: {{header.color}};
+}
+
+#div_id_hover{
+  color: black;
+}
+#div_id_hover:hover{
+  color: {{header.hover}};
+}
+#div_id_hover_back:hover{
+  display: inline;
+  background-color: {{header.hover}};
+}
+
+#div_id_size{
+  font-size: {{header.size}}rem;
+}
+
+#div_id_font{
+  font-family: {{header.font}};
+}
+
+
+
+#id_number.textinput {
+  color: {{header.color}};
+  border: none;
+  border-bottom: 2px solid red;
+}
+#id_number.textinput:focus {
+  color: {{header.color}};
+  outline: none;
+  border-bottom: 2px solid red;
+}
+
+#id_name.textinput {
+  color: {{header.color}};
+  width: 100%;
+  border: 2px solid red;
+  border-radius: 4px;
+}
+
+#id_name.textinput:focus {
+  color: {{header.color}};
+  width: 100%;
+  background-color: lightblue;
+  border-radius: 4px;
+}
+
+#id_color.textinput {
+  color: black;
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+
+</style>
+<script type="text/javascript">
+</script>
+{% endblock%}

@@ -1,0 +1,216 @@
+<style type="text/css">
+
+{% for header in headers %}
+
+h{{header.number}}{
+  font-size: {{header.size}}rem;
+  font-family: {{header.font}};
+  color: {{header.color}};
+  text-align: {{header.align}};
+
+  {% if header.animation_name %}
+  animation-name: {{header.animation_name}}; 
+  animation-duration: {{header.animation_duration}}s; 
+  animation-delay: {{header.animation_delay}}s;
+  animation-iteration-count: {{header.animation_iteration_count}};
+  animation-direction: {{header.animation_direction}};
+  {% endif %}
+}
+
+
+{% if header.hover %}
+h{{header.number}}:hover {
+  background-color: {{header.hover_back}};
+  color: {{header.hover}};
+}
+{% endif %}
+
+{% endfor %}
+
+
+{% if Profile.video_background == 'Yes' %}
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial;
+  font-size: 17px;
+}
+
+#myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%; 
+  min-height: 100%;
+}
+
+.content {
+  position: fixed;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  color: #f1f1f1;
+  width: 100%;
+  padding: 20px;
+}
+
+#myBtn {
+  width: 200px;
+  font-size: 18px;
+  padding: 10px;
+  border: none;
+  background: #000;
+  color: #fff;
+  cursor: pointer;
+}
+
+#myBtn:hover {
+  background: #ddd;
+  color: black;
+}
+{% endif %}
+
+{% if Profile.background_img %}
+body {
+  background-image: url("{{Profile.h1_img.url}}");
+}
+{% endif %}
+
+.footer {
+  clear: both;
+  position: relative;
+  height: 100px;
+  margin-top: -100px;
+  background-color: gray;
+  text-align: center;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background-color: #f1f1f1;
+  position: fixed;
+}
+
+a {
+  color: {{Profile.a_color}};
+}
+
+a:hover {
+  color: {{Profile.a_hover_color}};
+}
+
+button {
+  color: {{Profile.btn_hover_color}};
+  background-color: {{Profile.btn_color}};
+  border-color: {{Profile.btn_color}};
+  font-size: 20px;
+  text-align: center;
+}
+
+button:hover {
+  color: {{Profile.btn_color}};
+  background-color: {{Profile.btn_hover_color}};
+  border-color: {{Profile.btn_hover_color}};
+}
+
+.btn-info:hover {
+  background-color: {{Profile.btn_color}};
+  border-color: {{Profile.btn_color}};
+}
+
+footer {
+  color: {{Profile.footer_color}};
+}
+
+p {
+  text-align: {{Profile.text_align}};
+}
+
+
+/* ANIMATION */ 
+/* Standard syntax */ 
+
+@keyframes example { 
+
+  from {color: red;} 
+
+  to {color: yellow;} 
+
+}  
+
+@keyframes example2 { 
+
+  0%   {background-color: red;} 
+
+  25%  {background-color: yellow;} 
+
+  50%  {background-color: blue;} 
+
+  100% {background-color: green;} 
+
+} 
+
+@keyframes example3 { 
+
+  0%   {background-color:red; left:0px; top:0px;} 
+
+  25%  {background-color:yellow; left:200px; top:0px;} 
+
+  50%  {background-color:blue; left:200px; top:200px;} 
+
+  75%  {background-color:green; left:0px; top:200px;} 
+
+  100% {background-color:red; left:0px; top:0px;} 
+
+} 
+
+@keyframes example4 { 
+
+  0%   {color:red; left:0px; top:0px;} 
+
+  25%  {color:yellow; left:200px; top:0px;} 
+
+  50%  {color:blue; left:200px; top:200px;} 
+
+  75%  {color:green; left:0px; top:200px;} 
+
+  100% {color:red; left:0px; top:0px;} 
+
+} 
+
+ 
+
+.image { 
+
+    position: absolute; 
+
+    top: 50%; 
+
+    left: 50%; 
+
+    width: 120px; 
+
+    height: 120px; 
+
+    margin:-60px 0 0 -60px; 
+
+    -webkit-animation:spin 4s linear infinite; 
+
+    -moz-animation:spin 4s linear infinite; 
+
+    animation:spin 4s linear infinite; 
+
+} 
+
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } } 
+
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } } 
+
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } } 
+
+ 
+</style>
