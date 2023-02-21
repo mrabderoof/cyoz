@@ -13,6 +13,9 @@ from customers.models import Profile
 from customers.filters import ProfileFilter
 from django.core.paginator import Paginator
 
+def tables(request):
+    return render(request, 'tables.html')
+
 def index(request):
     
     story_list = Profile.objects.order_by('user')
@@ -33,7 +36,6 @@ def info(request):
     html_template = loader.get_template('info.html')
     return HttpResponse(html_template.render(context, request))
 
-@login_required
 def dashboard(request):
     context = {'segment': 'dashboard'}
 

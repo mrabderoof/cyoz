@@ -54,7 +54,7 @@ class ProfileView(View):
 
 # return render(request, "views/profiles.html", context)
 
-def profile_view(request, slug):
+def profile_view(request):
     context = {}
     # content = Profile.objects.get(slug=slug)
     # context = { "data": content }

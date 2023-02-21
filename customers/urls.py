@@ -6,6 +6,5 @@ urlpatterns = [
 
     path('customers/profile/', views.ProfileView.as_view(), name='profile'),
     # path('customers/profiles/', profiles, name='profiles'),
-
-    path('<slug>/', profile_view, name='profile_view'), 
+    path('profile/', profile_view, name='profile_view'), 
 ]

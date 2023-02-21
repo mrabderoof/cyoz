@@ -19,7 +19,7 @@
                         </div>
                         <!-- Button Modal -->
                         <div class="d-flex justify-content-center align-items-end flex-wrap mb-6">
-                            <a href="/dashboard.html" class="btn btn-secondary text-dark mr-4 mb-3 mb-lg-0"><span class="fas fa-chart-line mr-2 d-none d-sm-inline"></span> Dashboard Demo</a>
+                            <a href="{% url 'dashboard' %}" class="btn btn-secondary text-dark mr-4 mb-3 mb-lg-0"><span class="fas fa-chart-line mr-2 d-none d-sm-inline"></span> Dashboard Demo</a>
                         </div>
                         <div class="d-flex justify-content-center flex-column mb-6">
                             <a href="https://themesberg.com" target="_blank">
@@ -47,7 +47,7 @@
                 <div class="row mb-5">
                     {% for data in page_obj %}
                     <div class="col-6 mb-5">
-                        <a href="{% url 'profile_view' data.slug %}" class="page-preview page-preview-lg scale-up-hover-2">
+                        <a href="{% url 'profile_view' %}" class="page-preview page-preview-lg scale-up-hover-2">
                             <img class="shadow-lg rounded scale" src="/templates/assets/img/pages/overview.jpg" alt="Dashboard page preview">
                             <div class="text-center show-on-hover">
                                 <h6 class="m-0 text-center text-white">{{ data.user }} <i class="fas fa-external-link-alt ml-2"></i></h6>

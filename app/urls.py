@@ -13,6 +13,8 @@ urlpatterns = [
     path('app/info/', views.info, name='info'),
     path('app/dashboard/', views.dashboard, name='dashboard'),
 
+    path('tables', views.tables, name='tables'),
+
     # Matches any html file
     re_path(r'^.*\.html', views.pages, name='pages'),
 
